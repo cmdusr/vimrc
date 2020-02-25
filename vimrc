@@ -12,6 +12,7 @@ Plugin 'rdnetto/YCM-Generator'				" Generated configs for YCM
 Plugin 'flazz/vim-colorschemes'				" Vim colourschemes
 Plugin 'octol/vim-cpp-enhanced-highlight'	" Better c++ syntax highlighting
 "Plugin 'dusans/vim-hardmode'				" Disables simple vim forcing more efficiant useage
+Plugin 'godlygeek/tabular'                              " Text allignmnt
 "-----Plugins must be added here-----"
 
 "-----Required to use Vundle-----"

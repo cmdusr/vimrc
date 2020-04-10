@@ -44,8 +44,6 @@ Plug 'rking/ag.vim'                             " Search
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 Plug 'jiangmiao/auto-pairs'                     " Auto insert brackets
 
-"Plug 'jackguo380/vim-lsp-cxx-highlight'        " C++ Syntax highlighting
-
 call plug#end()
 " -------------------- Plugins end ---------------------- "
 
@@ -101,3 +99,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

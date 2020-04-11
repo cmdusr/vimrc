@@ -1,7 +1,7 @@
-"888b    888                  888     888 d8b              
-"8888b   888                  888     888 Y8P              
-"88888b  888                  888     888                  
-"888Y88b 888  .d88b.   .d88b. Y88b   d88P 888 88888b.d88b. 
+"888b    888                  888     888 d8b
+"8888b   888                  888     888 Y8P
+"88888b  888                  888     888
+"888Y88b 888  .d88b.   .d88b. Y88b   d88P 888 88888b.d88b.
 "888 Y88b888 d8P  Y8b d88""88b Y88b d88P  888 888  888  88b
 "888  Y88888 88888888 888  888  Y88o88P   888 888  888  888
 "888   Y8888 Y8b.     Y88..88P   Y888P    888 888  888  888
@@ -28,9 +28,12 @@ set number
 set showmatch
 set autochdir
 set hidden
+set list!
+set incsearch
 
 map - <C-W>-
 map + <C-W>+
+
 
 " -------------------- Plugins Start -------------------- "
 call plug#begin('~/.vim/plugged')
@@ -101,3 +104,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

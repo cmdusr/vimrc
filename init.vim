@@ -103,11 +103,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-<<<<<<< HEAD
 " Remap keys for gotos
-=======
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
->>>>>>> 03fdda2fa6319b71b11785bf5011fa9de0a0fab8
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)

@@ -31,15 +31,11 @@ set hidden
 set list!
 set incsearch
 
-map - <C-W>-
-map + <C-W>+
-
-
 " -------------------- Plugins Start -------------------- "
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'                       " File Tree
-Plug 'flazz/vim-colorschemes'                   " Colourschemes 
+Plug 'flazz/vim-colorschemes'                   " Colourschemes
 Plug 'godlygeek/tabular'                        " Tabulation
 Plug 'bfrg/vim-cpp-modern'                      " C++ Syntax highlighting
 Plug 'ctrlpvim/ctrlp.vim'                       " File Searching
@@ -103,7 +99,28 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Remap keys for gotos
+" -------------------- Remapping ---------------- "
+
+" Map leader to space
+let mapleader= " "
+
+" Edit init.vim
+map <leader>rc :e $MYVIMRC<CR>
+
+" Move between windows
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
+" Open nerdtree centered on current file
+nnoremap <leader>n :NERDTreeToggle<Enter>
+
+" Resize splits
+map - <C-W>-
+map + <C-W>+
+
+" Goto definitions
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

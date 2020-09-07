@@ -42,6 +42,7 @@ Plug 'ctrlpvim/ctrlp.vim'                       " File Searching
 Plug 'rking/ag.vim'                             " Search
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 Plug 'jiangmiao/auto-pairs'                     " Auto insert brackets
+Plug 'itchyny/lightline.vim'                    " Pretty status bar
 
 call plug#end()
 " -------------------- Plugins end ---------------------- "

@@ -114,6 +114,10 @@ map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 
+" Move between tabs
+map <leader>[ :tabprevious<CR>
+map <leader>] :tabnext<CR>
+
 " Open nerdtree centered on current file
 nnoremap <leader>n :NERDTreeToggle<Enter>
 

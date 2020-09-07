@@ -122,8 +122,10 @@ map <leader>] :tabnext<CR>
 nnoremap <leader>n :NERDTreeToggle<Enter>
 
 " Resize splits
-map - <C-W>-
-map + <C-W>+
+map - :winc -<CR>
+map = :winc +<CR>
+map _ :winc <<CR>
+map + :winc ><CR>
 
 " Goto definitions
 nmap <silent> gd <Plug>(coc-definition)

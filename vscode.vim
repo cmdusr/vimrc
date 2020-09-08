@@ -13,20 +13,26 @@
 let mapleader= " "
 
 " Edit init.vim
-map <leader>rc :e $MYVIMRC<CR>
+nnoremap <leader>rc :e $MYVIMRC<CR>
 
 " Move between windows
-map <leader>h :call VSCodeNotify('workbench.action.navigateLeft')<CR>
-map <leader>j :call VSCodeNotify('workbench.action.navigateDown')<CR>
-map <leader>k :call VSCodeNotify('workbench.action.navigateUp')<CR>
-map <leader>l :call VSCodeNotify('workbench.action.navigateRight')<CR>
+nnoremap <leader>h :call VSCodeNotify('workbench.action.navigateLeft')<CR>
+nnoremap <leader>j :call VSCodeNotify('workbench.action.navigateDown')<CR>
+nnoremap <leader>k :call VSCodeNotify('workbench.action.navigateUp')<CR>
+nnoremap <leader>l :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
 " Move between tabs
-map <leader>[ :call VSCodeNotify('workbench.action.previousEditor')<CR>
-map <leader>] :call VSCodeNotify('workbench.action.nextEditor')<CR>
+nnoremap <leader>[ :call VSCodeNotify('workbench.action.previousEditor')<CR>
+nnoremap <leader>] :call VSCodeNotify('workbench.action.nextEditor')<CR>
 
-" Open nerdtree centered on current file
-nnoremap <leader>n :NERDTreeToggle<Enter>
+" Goto file explorer
+nnoremap <leader>n :call VSCodeNotify('workbench.view.explorer')<CR>
 
-map - :call VSCodeNotify('workbench.action.increaseViewSize')<CR>
-map = :call VSCodeNotify('workbench.action.decreaseViewSize')<CR>
+" Resize window (Slow for some reason)
+nnoremap <silent>- :call VSCodeNotify('workbench.action.increaseViewSize')<CR>
+nnoremap <silent>= :call VSCodeNotify('workbench.action.decreaseViewSize')<CR>
+
+" Type information
+nnoremap <silent>gd :call VSCodeCall('editor.action.revealDefinition')<CR> 
+nnoremap <silent>gr :call VSCodeCall('editor.action.goToReferences')<CR> 
+nnoremap <silent>K :call VSCodeCall('editor.action.peekTypeDefinition')<CR> 

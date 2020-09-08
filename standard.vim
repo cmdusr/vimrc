@@ -38,6 +38,7 @@ Plug 'preservim/nerdtree'                       " File Tree
 Plug 'flazz/vim-colorschemes'                   " Colourschemes
 Plug 'godlygeek/tabular'                        " Tabulation
 Plug 'bfrg/vim-cpp-modern'                      " C++ Syntax highlighting
+Plug 'sheerun/vim-polyglot'                     " Language packs
 Plug 'ctrlpvim/ctrlp.vim'                       " File Searching
 Plug 'rking/ag.vim'                             " Search
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
@@ -107,6 +108,7 @@ let mapleader= " "
 
 " Edit init.vim
 map <leader>rc :e $MYVIMRC<CR>
+map <leader>src :source $MYVIMRC<CR>
 
 " Move between windows
 map <leader>h :wincmd h<CR>

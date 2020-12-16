@@ -34,16 +34,20 @@ set incsearch
 " -------------------- Plugins Start -------------------- "
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree'                       " File Tree
-Plug 'flazz/vim-colorschemes'                   " Colourschemes
-Plug 'godlygeek/tabular'                        " Tabulation
-Plug 'bfrg/vim-cpp-modern'                      " C++ Syntax highlighting
-Plug 'sheerun/vim-polyglot'                     " Language packs
-Plug 'ctrlpvim/ctrlp.vim'                       " File Searching
-Plug 'rking/ag.vim'                             " Search
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
-Plug 'jiangmiao/auto-pairs'                     " Auto insert brackets
-Plug 'itchyny/lightline.vim'                    " Pretty status bar
+" Essential
+Plug 'preservim/nerdtree'     " File Tree
+Plug 'godlygeek/tabular'      " Tabulation
+Plug 'flazz/vim-colorschemes' " Colourschemes
+Plug 'sheerun/vim-polyglot'   " Language packs
+Plug 'itchyny/lightline.vim'  " Pretty status bar
+Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
+
+" Nice to have
+"Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
+
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+"Plug 'airblade/vim-rooter'
 
 call plug#end()
 " -------------------- Plugins end ---------------------- "
@@ -137,3 +141,35 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Escape terminal
 :tnoremap <Esc> <C-\><C-n>
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+"let g:fzf_history_dir = '~/.local/share/fzf-history'
+"
+map <leader>f :Files<CR>
+map <leader>b :Buffers<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>m :Marks<CR>
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4"
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }

@@ -32,7 +32,7 @@ set list!
 set incsearch
 
 " -------------------- Plugins Start -------------------- "
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data').'/plugged')
 
 " Essential
 Plug 'preservim/nerdtree'     " File Tree
@@ -44,7 +44,6 @@ Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 
 " Nice to have
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
-
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
 "Plug 'airblade/vim-rooter'
@@ -64,18 +63,6 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
-
-" -------------------- AG + Ctrlp Search ---------------- "
-if executable('ag')
-  " Use ag over grep "
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore "
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache "
-  let g:ctrlp_use_caching = 0
-endif
 
 " -------------------- Coc Autocompletion ---------------- "
 set updatetime=300

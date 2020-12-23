@@ -59,12 +59,13 @@ map + :winc +<CR>
 " Escape terminal
 :tnoremap <Esc> <C-\><C-n>
 
+" -------------------- Plugins -------------------- "
+
 " End here if plug is not installed
-if !exists(':PlugInstall')
-    finish
+if !exists('g:loaded_plug')
+	finish
 endif
 
-" -------------------- Plugins -------------------- "
 call plug#begin(stdpath('data').'/plugged')
 
 " Essential
@@ -81,7 +82,6 @@ Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 "Plug 'junegunn/fzf.vim'
 
 call plug#end()
-" -------------------- Plugins end ---------------------- "
 
 " -------------------- Colourschemes -------------------- "
 colorscheme leo

@@ -59,6 +59,24 @@ map + :winc +<CR>
 " Escape terminal
 :tnoremap <Esc> <C-\><C-n>
 
+
+" -------------------- Functions ---------------- "
+function! IsBufferFile()
+    return strlen(expand('%')) > 0
+endfunction
+
+function! IsBufferModifiable()
+    return &modifiable
+endfunction
+
+function! IsBufferDiff()
+    return &diff
+endfunction
+
+function! IsBufferTerminal()
+    return &buftype ==# 'terminal'
+endfunction
+
 " -------------------- Plugins -------------------- "
 
 " End here if plug is not installed
@@ -89,26 +107,10 @@ colorscheme leo
 " -------------------- Nerd Tree ------------------------ "
 let NERDTreeMinimalUI = 1
 let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeChDirMode = 2
+"let g:NERDTreeChDirMode = 2
 
 function! NERDTreeIsOpen()
     return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-function! IsBufferFile()
-    return strlen(expand('%')) > 0
-endfunction
-
-function! IsBufferModifiable()
-    return &modifiable
-endfunction
-
-function! IsBufferDiff()
-    return &diff 
-endfunction
-
-function! IsBufferTerminal()
-    return &buftype ==# 'terminal'
 endfunction
 
 function! NERDTreeToggleInCurDir()

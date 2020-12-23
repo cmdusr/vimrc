@@ -62,9 +62,9 @@ map + :winc +<CR>
 " -------------------- Plugins -------------------- "
 
 " End here if plug is not installed
-if !exists('g:loaded_plug')
-	finish
-endif
+"if !exists('g:loaded_plug')
+"	finish
+"endif
 
 call plug#begin(stdpath('data').'/plugged')
 
@@ -78,8 +78,8 @@ Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 
 " Nice to have
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -88,7 +88,22 @@ colorscheme leo
 
 " -------------------- Nerd Tree ------------------------ "
 let NERDTreeMinimalUI = 1
-nnoremap <leader>n :NERDTreeToggle<Enter>
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeChDirMode = 2
+
+function! NERDTreeIsOpen()
+    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+function! NERDTreeToggleInCurDir()
+    if NERDTreeIsOpen()
+        :NERDTreeClose
+    else
+        :NERDTreeFind
+    endif
+endfunction
+
+nnoremap <leader>n :call NERDTreeToggleInCurDir()<CR>
 
 " -------------------- C++ highlight -------------------- "
 let g:cpp_class_scope_highlight = 1

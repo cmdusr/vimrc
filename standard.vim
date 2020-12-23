@@ -95,11 +95,19 @@ function! NERDTreeIsOpen()
     return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
+function! CheckIfCurrentBufferIsFile()
+    return strlen(expand('%')) > 0
+endfunction
+
 function! NERDTreeToggleInCurDir()
     if NERDTreeIsOpen()
-        :NERDTreeClose
+        NERDTreeClose
     else
-        :NERDTreeFind
+        if CheckIfCurrentBufferIsFile()
+            NERDTreeFind
+        else
+            NERDTreeToggle
+        endif
     endif
 endfunction
 

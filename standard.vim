@@ -88,6 +88,7 @@ colorscheme leo
 
 " -------------------- Nerd Tree ------------------------ "
 let NERDTreeMinimalUI = 1
+nnoremap <leader>n :NERDTreeToggle<Enter>
 
 " -------------------- C++ highlight -------------------- "
 let g:cpp_class_scope_highlight = 1
@@ -123,10 +124,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-
-" Open nerdtree centered on current file
-nnoremap <leader>n :NERDTreeToggle<Enter>
 
 " Goto definitions
 nmap <silent> gd <Plug>(coc-definition)

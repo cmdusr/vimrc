@@ -31,7 +31,40 @@ set hidden
 set list!
 set incsearch
 
-" -------------------- Plugins Start -------------------- "
+" -------------------- Remapping ---------------- "
+
+" Map leader to space
+let mapleader= " "
+
+" Edit init.vim
+map <leader>rc :e $MYVIMRC<CR>
+map <leader>src :source $MYVIMRC<CR>
+
+" Move between windows
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
+" Move between tabs
+map <leader>[ :tabprevious<CR>
+map <leader>] :tabnext<CR>
+
+" Resize splits
+map - :winc <<CR>
+map = :winc ><CR>
+map _ :winc -<CR>
+map + :winc +<CR>
+
+" Escape terminal
+:tnoremap <Esc> <C-\><C-n>
+
+" End here if plug is not installed
+if !exists(':PlugInstall')
+    finish
+endif
+
+" -------------------- Plugins -------------------- "
 call plug#begin(stdpath('data').'/plugged')
 
 " Essential
@@ -46,7 +79,6 @@ Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
-"Plug 'airblade/vim-rooter'
 
 call plug#end()
 " -------------------- Plugins end ---------------------- "
@@ -92,71 +124,12 @@ function! s:show_documentation()
   endif
 endfunction
 
-" -------------------- Remapping ---------------- "
-
-" Map leader to space
-let mapleader= " "
-
-" Edit init.vim
-map <leader>rc :e $MYVIMRC<CR>
-map <leader>src :source $MYVIMRC<CR>
-
-" Move between windows
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
-
-" Move between tabs
-map <leader>[ :tabprevious<CR>
-map <leader>] :tabnext<CR>
 
 " Open nerdtree centered on current file
 nnoremap <leader>n :NERDTreeToggle<Enter>
-
-" Resize splits
-map - :winc <<CR>
-map = :winc ><CR>
-map _ :winc -<CR>
-map + :winc +<CR>
 
 " Goto definitions
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Escape terminal
-:tnoremap <Esc> <C-\><C-n>
-
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-"let g:fzf_history_dir = '~/.local/share/fzf-history'
-"
-map <leader>f :Files<CR>
-map <leader>b :Buffers<CR>
-nnoremap <leader>g :Rg<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>m :Marks<CR>
-
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4"
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }

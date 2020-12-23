@@ -95,15 +95,27 @@ function! NERDTreeIsOpen()
     return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
-function! CheckIfCurrentBufferIsFile()
+function! IsBufferFile()
     return strlen(expand('%')) > 0
+endfunction
+
+function! IsBufferModifiable()
+    return &modifiable
+endfunction
+
+function! IsBufferDiff()
+    return &diff 
+endfunction
+
+function! IsBufferTerminal()
+    return &buftype ==# 'terminal'
 endfunction
 
 function! NERDTreeToggleInCurDir()
     if NERDTreeIsOpen()
         NERDTreeClose
     else
-        if CheckIfCurrentBufferIsFile()
+        if IsBufferFile() && !IsBufferDiff() && !IsBufferTerminal()
             NERDTreeFind
         else
             NERDTreeToggle

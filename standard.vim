@@ -8,28 +8,27 @@
 "888    Y888   Y8888    Y88P"     Y8P     888 888  888  888
 
 "----------------------General Config----------------------"
-set nocompatible
-set exrc
-set noswapfile
-set nobackup
-set nowritebackup
-set encoding=utf-8
-set clipboard=unnamed
-set incsearch
-set noshowmode
-set termguicolors
-set background=dark
-set noerrorbells
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set nowrap
-set number
-set showmatch
-set autochdir
-set hidden
-set list!
-set incsearch
+
+set nocompatible         " Drop vi compatibility
+set noerrorbells         " No beeps
+set noswapfile           " No swap file
+set nobackup             " No persistent backup files
+set nowritebackup        " No transiant backup files
+set encoding=utf-8       " utf-8 encoding
+set clipboard=unnamed    " Use system cliboard
+set incsearch            " Incrementally search patterns
+set noshowmode           " No mode message at the bottom
+set termguicolors        " Use modern terminal colours
+set background=dark      " Dark background
+set tabstop=4            " Number of spaces per tab
+set softtabstop=4        " Number of space per tab when editing
+set shiftwidth=4         " Number of spaces per indent
+set nowrap               " No line wrapping
+set number               " Show line numbers
+set noshowmatch          " No jumping when inserting brackets
+set noautochdir          " No automatic directory changing
+set hidden               " No prompt to save
+set list                 " Show whitespaces
 
 " -------------------- Remapping ---------------- "
 
@@ -58,7 +57,6 @@ map + :winc +<CR>
 
 " Escape terminal
 :tnoremap <Esc> <C-\><C-n>
-
 
 " -------------------- Functions ---------------- "
 function! IsBufferFile()
@@ -95,9 +93,9 @@ Plug 'itchyny/lightline.vim'  " Pretty status bar
 Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 
 " Nice to have
-"Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 
 call plug#end()
 
@@ -138,6 +136,8 @@ let g:cpp_concepts_highlight = 1
 set updatetime=300
 set signcolumn=yes
 set shortmess+=c
+
+let g:coc_config_home = CONFIG_PATH 
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.

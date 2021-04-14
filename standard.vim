@@ -36,24 +36,24 @@ set list                 " Show whitespaces
 let mapleader= " "
 
 " Edit init.vim
-map <leader>rc :e $MYVIMRC<CR>
-map <leader>src :source $MYVIMRC<CR>
+nnoremap <leader>rc :e $MYVIMRC<CR>
+nnoremap <leader>src :source $MYVIMRC<CR>
 
 " Move between windows
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
 
 " Move between tabs
-map <leader>[ :tabprevious<CR>
-map <leader>] :tabnext<CR>
+nnoremap <leader>[ :tabprevious<CR>
+nnoremap <leader>] :tabnext<CR>
 
 " Resize splits
-map - :winc <<CR>
-map = :winc ><CR>
-map _ :winc -<CR>
-map + :winc +<CR>
+nnoremap - :winc <<CR>
+nnoremap = :winc ><CR>
+nnoremap _ :winc -<CR>
+nnoremap + :winc +<CR>
 
 " Escape terminal
 :tnoremap <Esc> <C-\><C-n>
@@ -105,7 +105,6 @@ colorscheme leo
 " -------------------- Nerd Tree ------------------------ "
 let NERDTreeMinimalUI = 1
 let g:NERDTreeAutoDeleteBuffer = 1
-"let g:NERDTreeChDirMode = 2
 
 function! NERDTreeIsOpen()
     return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)

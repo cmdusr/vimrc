@@ -10,18 +10,37 @@
 
 let config_level=1
 
-" -------------------- Plugins --------------------------- "
+" Level 0: Minimal  config with zero dependencies (No    plugins)
+" Level 1: Standard config with few  dependencies (Small plugins)
+" Level 2: Powerful config with many dependencies (Large plugins)
 
-if config_level >= 1
-    call plug#begin(stdpath('data').'/plugged')
+" Always include Level 0 minimal config
+execute 'source '.stdpath('config').'/0_basic.vim'
 
-    Plug 'preservim/nerdtree'     " File Tree
-    Plug 'godlygeek/tabular'      " Tabulation
-    Plug 'flazz/vim-colorschemes' " Colourschemes
-    Plug 'sheerun/vim-polyglot'   " Language packs
-    Plug 'itchyny/lightline.vim'  " Pretty status bar
-    Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
+if config_level == 0
+	" Early exit for minimal config
+	finish
 endif
+
+"----------------------Plug---------------------------------"
+
+" Auto install Plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin(stdpath('data').'/plugged')
+
+"----------------------Plugins-----------------------------"
+
+Plug 'preservim/nerdtree'     " File Tree
+Plug 'godlygeek/tabular'      " Tabulation
+Plug 'flazz/vim-colorschemes' " Colourschemes
+Plug 'sheerun/vim-polyglot'   " Language packs
+Plug 'itchyny/lightline.vim'  " Pretty status bar
+Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 
 if config_level >= 2
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " FZF Fuzzy finder
@@ -29,24 +48,14 @@ if config_level >= 2
     Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Autocompletion
 endif
 
-if config_level > 0
-    call plug#end()
-endif
+call plug#end()
 
-"---------------------- Configs --------------------------"
+"----------------------Final Config------------------------"
 
-if config_level >= 0
-    " Minimal configuration with zero dependencies
-    execute 'source '.stdpath('config').'/0_basic.vim'
-endif
-
-if config_level >= 1
-    " Standard plugins with few dependencies
-    execute 'source '.stdpath('config').'/1_standard.vim'
-endif
+" Level 1 config
+execute 'source '.stdpath('config').'/1_standard.vim'
 
 if config_level >= 2
-    " Powerful plugins with many dependencies
+	" Level 2 config
     execute 'source '.stdpath('config').'/2_advanced.vim'
 endif
-

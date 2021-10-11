@@ -38,6 +38,7 @@ set noshowmatch          " No jumping when inserting brackets
 set noautochdir          " No automatic directory changing
 set hidden               " No prompt to save
 set list                 " Show whitespaces
+set foldmethod=syntax    " Syntax based code folding
 
 " Map leader to space
 let mapleader= " "

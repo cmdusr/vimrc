@@ -31,7 +31,7 @@ set background=dark      " Dark background
 set tabstop=4            " Number of spaces per tab
 set softtabstop=4        " Number of space per tab when editing
 set shiftwidth=4         " Number of spaces per indent
-set noexpandtab
+set noexpandtab          " Use tabs please
 set nowrap               " No line wrapping
 set number               " Show line numbers
 set noshowmatch          " No jumping when inserting brackets

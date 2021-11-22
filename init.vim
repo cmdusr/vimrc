@@ -7,7 +7,7 @@
 "888   Y8888 Y8b.     Y88..88P   Y888P    888 888  888  888
 "888    Y888   Y8888    Y88P"     Y8P     888 888  888  888
 
-"----------------------Main Character-----------------------"
+"-----------------------------------------------------------"
 
 " Level 0: Minimal  config with zero dependencies (No    plugins)
 " Level 1: Standard config with few  dependencies (Small plugins)
@@ -63,8 +63,14 @@ nnoremap = :winc ><CR>
 nnoremap _ :winc -<CR>
 nnoremap + :winc +<CR>
 
+" Create new tab from current buffer
+nnoremap <leader>p :tab split<CR>
+
 " Escape terminal
 :tnoremap <Esc> <C-\><C-n>
+
+" Copy path of current buffer to paste buffer
+nnoremap <leader>b :let @+ = expand("%:p")<CR>
 
 " Early exit for minimal config
 if config_level < 1
@@ -93,11 +99,13 @@ Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 
 " Advanced plugins
 if config_level >= 2
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'neovim/nvim-lspconfig'                     " Neovim configs for builtin lsp
+    Plug 'hrsh7th/nvim-compe'                        " Neovim lsp autocomplete
+    Plug 'nvim-lua/popup.nvim'                       " Neovim popups ported from vim
+    Plug 'nvim-lua/plenary.nvim'                     " Neovim asynch coroutines for lua
+    Plug 'nvim-telescope/telescope.nvim'             " Neovim extendable fuzzy finder
+    Plug 'junegunn/fzf', {'do': {-> fzf#install()}}  " Fuzzy finder
+    Plug 'junegunn/fzf.vim'                          " Fuzzy finder
 endif
 
 call plug#end()
@@ -169,5 +177,8 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
+" FZF
+nnoremap <leader>ff <cmd>Files<cr>

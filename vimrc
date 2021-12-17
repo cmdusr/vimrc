@@ -1,49 +1,74 @@
-"8r8b    888                  888     888 d8b
-"8888b   888                  888     888 Y8P
-"88888b  888                  888     888
-"888Y88b 888  .d88b.   .d88b. Y88b   d88P 888 88888b.d88b.
-"888 Y88b888 d8P  Y8b d88""88b Y88b d88P  888 888  888  88b
-"888  Y88888 88888888 888  888  Y88o88P   888 888  888  888
-"888   Y8888 Y8b.     Y88..88P   Y888P    888 888  888  888
-"888    Y888   Y8888    Y88P"     Y8P     888 888  888  888
-
+" 888     888 d8b
+" 888     888 Y8P
+" 888     888
+" Y88b   d88P 888 88888b.d88b.  888d888 .d8888b
+"  Y88b d88P  888 888 "888 "88b 888P"  d88P"
+"   Y88o88P   888 888  888  888 888    888
+"    Y888P    888 888  888  888 888    Y88b.
+"     Y8P     888 888  888  888 888     "Y8888P
 "-----------------------------------------------------------"
+" Colossal
 
 " Level 0: Minimal  config with zero dependencies (No    plugins)
 " Level 1: Standard config with few  dependencies (Small plugins)
 " Level 2: Advanced config with many dependencies (Large plugins)
 
-let config_level=2
+let config_level=0
 
 "----------------------Level 0------------------------------"
 
 set nocompatible         " Drop vi compatibility
-set noerrorbells         " No beeps
+set belloff=all          " No beeps
+set ttyfast              " Faster terminal rendering
+set hidden               " No prompt to save
 set noswapfile           " No swap file
 set nobackup             " No persistent backup files
 set nowritebackup        " No transiant backup files
 set encoding=utf-8       " utf-8 encoding
 set clipboard=unnamed    " Use system cliboard
-set incsearch            " Incrementally search patterns
-set noshowmode           " No mode message at the bottom
+
 set termguicolors        " Use modern terminal colours
 set background=dark      " Dark background
+
 set tabstop=4            " Number of spaces per tab
 set softtabstop=4        " Number of space per tab when editing
 set shiftwidth=4         " Number of spaces per indent
 set noexpandtab          " Use tabs please
+
 set nowrap               " No line wrapping
 set number               " Show line numbers
 set noshowmatch          " No jumping when inserting brackets
 set noautochdir          " No automatic directory changing
-set hidden               " No prompt to save
-set list                 " Show whitespaces
 set foldmethod=syntax    " Syntax based code folding
+set autoread             " Reload file if edited outside of vim
+
+set incsearch            " Incrementally search patterns
+set hlsearch             " Highlight search
+
+set list                              " Show whitespaces
+set listchars=tab:>\ ,trail:-,nbsp:+  " Nice looking whitespace representation
+
+" Neovim defaults
+set backspace=indent,eol,start        " Make deleting easier
+set complete-=i                       " ???
+set display=lastline                  " Show but truncate long lines
+set formatoptions=tcqj                " Behavour of pasting
+set history=10000                     " Number of lines remembered in history
+set laststatus=2                      " Always have status line
+set mouse=a                           " Enable mouse
+set nrformats=bin,octal,hex           " Recognise number formats
+set tabpagemax=50                     " Limit number of files opened as tabs
+set viminfo+=!                        " Add additons to the viminfo option
+set wildmenu                          " Enable menu for tab completion
+
+"set sessionoptions-=options
+"set autoindent
+"set langnoremap                      " Does not apply characters from a language mapping
 
 " Map leader to space
 let mapleader= " "
 
-" Edit init.vim
+" Edit vimrc
 nnoremap <leader>rc :e $MYVIMRC<CR>
 nnoremap <leader>src :source $MYVIMRC<CR>
 
@@ -109,6 +134,9 @@ if config_level >= 2
 endif
 
 call plug#end()
+
+" Statusline, Dont show mode message at the bottom
+set noshowmode
 
 " Colourscheme
 colorscheme leo

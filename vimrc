@@ -114,6 +114,7 @@ Plug 'flazz/vim-colorschemes' " Colourschemes
 Plug 'sheerun/vim-polyglot'   " Language packs
 Plug 'itchyny/lightline.vim'  " Pretty status bar
 Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
+Plug 'tpope/vim-surround'     " Surround text with quotes etc
 
 " Standard plugins
 if config_level >= 2

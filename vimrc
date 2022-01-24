@@ -94,6 +94,26 @@ nnoremap <leader>p :tab split<CR>
 " Copy path of current buffer to paste buffer
 nnoremap <leader>b :let @+ = expand("%:p")<CR>
 
+" Gvim
+if has('gui_running')
+	set guioptions -=m
+	set guioptions -=T
+	set guioptions -=r
+	set guioptions -=l
+	set guioptions -=b
+	set guioptions -=R
+	set guioptions -=L
+	set guioptions -=B
+
+	if has("gui_gtk2")
+		set guifont=Inconsolata\ 12
+	elseif has("gui_macvim")
+		set guifont=Menlo\ Regular:h14
+	elseif has("gui_win32")
+		set guifont=Consolas:h11:cANSI
+	endif
+endif
+
 " Early exit for minimal config
 if config_level < 1
 	finish
@@ -102,7 +122,7 @@ endif
 "----------------------Level 1------------------------------"
 
 if has('win32')
-	call plug#begin('~/vimfiles/plugged')
+	call plug#begin('C:\tools\vim\vimfiles\plugged')
 else
 	call plug#begin('~/.vim/plugged')
 endif

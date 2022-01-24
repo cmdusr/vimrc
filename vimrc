@@ -25,6 +25,7 @@ set hidden               " No prompt to save
 set noswapfile           " No swap file
 set nobackup             " No persistent backup files
 set nowritebackup        " No transiant backup files
+set noundofile           " No backup files
 set encoding=utf-8       " utf-8 encoding
 set clipboard=unnamed    " Use system cliboard
 set laststatus=2         " Always have status line
@@ -187,6 +188,7 @@ endif
 
 " FZF
 nnoremap <leader>ff <cmd>Files<cr>
+nnoremap <leader>rg <cmd>Rg<cr>
 
 " Early exit
 if config_level < 3

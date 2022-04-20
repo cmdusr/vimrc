@@ -51,6 +51,9 @@ set hlsearch             " Highlight search
 set list                             " Show whitespaces
 set listchars=tab:>\ ,trail:-,nbsp:+ " Nice looking whitespace representation
 
+set cino==0               " Stop adding indentations after the 'case' statement
+set formatoptions-=ro     " Stop adding comments after a comment
+
 " Neovim defaults
 set backspace=indent,eol,start " Make deleting easier
 set complete-=i                " ???

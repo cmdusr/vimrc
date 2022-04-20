@@ -205,7 +205,7 @@ if executable('clangd')
 		autocmd!
 		autocmd User lsp_setup call lsp#register_server({
 			\ 'name': 'clangd',
-			\ 'cmd': {server_info->['clangd', '-background-index']},
+			\ 'cmd': {server_info->['clangd', '-background-index', '--header-insertion=never']},
 			\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
 			\ })
 		autocmd FileType c setlocal omnifunc=lsp#complete

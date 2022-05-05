@@ -139,6 +139,7 @@ Plug 'sheerun/vim-polyglot'   " Language packs
 Plug 'itchyny/lightline.vim'  " Pretty status bar
 Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 Plug 'tpope/vim-surround'     " Surround text with quotes etc
+Plug 'romainl/vim-cool'       " Search highlight only when searching
 
 " Standard plugins
 if config_level >= 2
@@ -200,20 +201,7 @@ endif
 
 "----------------------Level 3------------------------------"
 
-if executable('clangd')
-	augroup lsp_clangd
-		autocmd!
-		autocmd User lsp_setup call lsp#register_server({
-			\ 'name': 'clangd',
-			\ 'cmd': {server_info->['clangd', '-background-index', '--header-insertion=never']},
-			\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-			\ })
-		autocmd FileType c setlocal omnifunc=lsp#complete
-		autocmd FileType cpp setlocal omnifunc=lsp#complete
-		autocmd FileType objc setlocal omnifunc=lsp#complete
-		autocmd FileType objcpp setlocal omnifunc=lsp#complete
-	augroup end
-endif
+"let g:lsp_settings_clangd_args+= "--header-insertion=never"
 
 let g:lsp_diagnostics_enabled=1         " disable diagnostics support
 let g:lsp_diagnostics_virtual_text_enabled=1
@@ -235,6 +223,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> [g <plug>(lsp-previous-diagnostic)
 	nmap <buffer> ]g <plug>(lsp-next-diagnostic)
 	nmap <buffer> K <plug>(lsp-hover)
+
 	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
 	inoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
@@ -243,6 +232,8 @@ function! s:on_lsp_buffer_enabled() abort
 
 " refer to doc to add more commands
 endfunction
+
+nmap gh :LspDocumentSwitchSourceHeader <CR>
 
 augroup lsp_install
 	au!

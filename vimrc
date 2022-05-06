@@ -96,7 +96,7 @@ nnoremap <leader>p :tab split<CR>
 :tnoremap <Esc> <C-\><C-n>
 
 " Copy path of current buffer to paste buffer
-nnoremap <leader>b :let @+ = expand("%:p")<CR>
+nnoremap <leader>b :let @+ = expand("%:p")<CR> :echo @+<CR>
 
 " Gvim
 if has('gui_running')

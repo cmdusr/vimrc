@@ -100,14 +100,7 @@ nnoremap <leader>b :let @+ = expand("%:p")<CR>
 
 " Gvim
 if has('gui_running')
-	set guioptions -=m
-	set guioptions -=T
-	set guioptions -=r
-	set guioptions -=l
-	set guioptions -=b
-	set guioptions -=R
-	set guioptions -=L
-	set guioptions -=B
+	set guioptions=c
 
 	if has("gui_gtk2")
 		set guifont=Inconsolata\ 12
@@ -200,8 +193,6 @@ if config_level < 3
 endif
 
 "----------------------Level 3------------------------------"
-
-"let g:lsp_settings_clangd_args+= "--header-insertion=never"
 
 let g:lsp_diagnostics_enabled=1         " disable diagnostics support
 let g:lsp_diagnostics_virtual_text_enabled=1

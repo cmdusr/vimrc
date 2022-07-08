@@ -184,8 +184,13 @@ endif
 "----------------------Level 2------------------------------"
 
 " FZF
+let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 0.5, 'relative':v:true, 'yoffset': 1.0 } }
+
 nnoremap <leader>ff <cmd>Files<cr>
 nnoremap <leader>rg <cmd>Rg<cr>
+
+command! -bang -nargs=? -complete=dir CPPFiles call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['-q', '.cpp$ !Intermediate']}), <bang>0)
+nnoremap <leader>cpp <cmd>CPPFiles<cr>
 
 " Early exit
 if config_level < 3

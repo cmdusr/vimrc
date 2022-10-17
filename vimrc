@@ -18,56 +18,45 @@ let config_level=3
 
 "----------------------Level 0------------------------------"
 
-set nocompatible         " Drop vi compatibility
-set belloff=all          " No beeps
-set ttyfast              " Faster terminal rendering
-set hidden               " No prompt to save
-set noswapfile           " No swap file
-set nobackup             " No persistent backup files
-set nowritebackup        " No transiant backup files
-set noundofile           " No backup files
-set encoding=utf-8       " utf-8 encoding
-set clipboard=unnamed    " Use system cliboard
-set laststatus=2         " Always have status line
-
-set termguicolors        " Use modern terminal colours
-set background=dark      " Dark background
-
-set tabstop=4            " Number of spaces per tab
-set softtabstop=4        " Number of space per tab when editing
-set shiftwidth=4         " Number of spaces per indent
-set noexpandtab          " Use tabs please
-
-set nowrap               " No line wrapping
-set number               " Show line numbers
-set noshowmatch          " No jumping when inserting brackets
-set noautochdir          " No automatic directory changing
-set foldmethod=syntax    " Syntax based code folding
-set autoread             " Reload file if edited outside of vim
-
-set incsearch            " Incrementally search patterns
-set hlsearch             " Highlight search
-
+set nocompatible                     " Drop vi compatibility
+set ttyfast                          " Faster terminal rendering
+set belloff=all                      " No beeps
+set hidden                           " No prompt to save
+set noswapfile                       " No swap file
+set nobackup                         " No persistent backup files
+set nowritebackup                    " No transiant backup files
+set noundofile                       " No backup files
+set encoding=utf-8                   " utf-8 encoding
+set clipboard=unnamed                " Use system cliboard
+set laststatus=2                     " Always have status line
+set history=10000                    " Generous history buffer
+set wildmenu                         " Enable menu for tab completion
+set termguicolors                    " Use modern terminal colours
+set background=dark                  " Dark background
+set tabpagemax=50                    " Limit number of files opened as tabs from cmdline
+set tabstop=4                        " Number of spaces per tab
+set softtabstop=4                    " Number of space per tab when editing
+set shiftwidth=4                     " Number of spaces per indent
+set noexpandtab                      " Use tabs please
+set backspace=indent,eol,start       " Makes backspace deleting sane
+set mouse=a                          " Enable mouse
+set nowrap                           " No line wrapping
+set number                           " Show line numbers
+set noshowmatch                      " No jumping when inserting brackets
+set noautochdir                      " No automatic directory changing
+set foldmethod=syntax                " Syntax based code folding
+set autoread                         " Reload file if edited outside of vim
+set display=lastline                 " Show but truncate long lines
+set incsearch                        " Incrementally search patterns
+set hlsearch                         " Highlight search
 set list                             " Show whitespaces
 set listchars=tab:>\ ,trail:-,nbsp:+ " Nice looking whitespace representation
+set cino==0                          " Stop adding indentations after the 'case' statement
+set formatoptions=                   " Stop autoformating
 
-set cino==0               " Stop adding indentations after the 'case' statement
-set formatoptions-=ro     " Stop adding comments after a comment
+let mapleader= " "                   " Map leader to space
 
-" Neovim defaults
-set backspace=indent,eol,start " Make deleting easier
-set complete-=i                " ???
-set display=lastline           " Show but truncate long lines
-set formatoptions=tcqj         " Behavour of pasting
-set history=10000              " Number of lines remembered in history
-set mouse=a                    " Enable mouse
-set nrformats=bin,octal,hex    " Recognise number formats
-set tabpagemax=50              " Limit number of files opened as tabs
-set viminfo+=!                 " Add additons to the viminfo option
-set wildmenu                   " Enable menu for tab completion
-
-" Map leader to space
-let mapleader= " "
+let netrw_banner=0                   " No banner in the netrw plugin
 
 " Edit vimrc
 nnoremap <leader>rc :e $MYVIMRC<CR>
@@ -197,9 +186,9 @@ if config_level < 3
 	finish
 endif
 
-"----------------------Level 3------------------------------"
+"----------------------Level 3------------------------------"!
 
-let g:lsp_diagnostics_enabled=1         " disable diagnostics support
+let g:lsp_diagnostics_enabled=1
 let g:lsp_diagnostics_virtual_text_enabled=1
 let g:lsp_diagnostics_float_cursor=1
 let g:lsp_diagnostics_float_cursor=1

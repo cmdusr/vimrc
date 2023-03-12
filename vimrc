@@ -157,6 +157,7 @@ let NERDTreeMinimalUI = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeFind<CR> zz
+nnoremap <leader>rn :NERDTreeRefreshRoot<CR> zz
 
 " C++ Highlight
 let g:cpp_class_scope_highlight = 1

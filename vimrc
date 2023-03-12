@@ -189,8 +189,7 @@ endif
 "----------------------Level 3------------------------------"!
 
 let g:lsp_diagnostics_enabled=1
-let g:lsp_diagnostics_virtual_text_enabled=1
-let g:lsp_diagnostics_float_cursor=1
+let g:lsp_diagnostics_virtual_text_enabled=0
 let g:lsp_diagnostics_float_cursor=1
 let g:lsp_diagnostics_highlights_enabled=1
 
@@ -231,3 +230,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+let g:lsp_settings = {
+	\	'clangd': {
+	\	'args': ['--header-insertion=never']
+	\	},
+	\}

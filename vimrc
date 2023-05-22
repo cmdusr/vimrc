@@ -116,10 +116,8 @@ endif
 " Basic plugins
 Plug 'preservim/nerdtree'     " File Tree
 Plug 'godlygeek/tabular'      " Tabulation
-Plug 'flazz/vim-colorschemes' " Colourschemes
 Plug 'sheerun/vim-polyglot'   " Language packs
 Plug 'itchyny/lightline.vim'  " Pretty status bar
-Plug 'jiangmiao/auto-pairs'   " Auto insert brackets
 Plug 'tpope/vim-surround'     " Surround text with quotes etc
 Plug 'romainl/vim-cool'       " Search highlight only when searching
 
